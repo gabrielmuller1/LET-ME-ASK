@@ -1,0 +1,196 @@
+.question {
+  background: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+  border: 1px solid transparent;
+
+  &.answered {
+    background: var(--white);
+    opacity: 0.4;
+  }
+
+  &.highlighted {
+    background: var(--box-background);
+    border: 1px solid var(--purple);
+
+    .userInfo > span {
+      color: var(--black);
+    }
+  }
+
+  & + .question {
+    margin-top: 0.5rem;
+  }
+
+  p {
+    color: var(--black);
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    div:last-child {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      > span {
+        margin-left: 0.5rem;
+        color: var(--gray-dark);
+        font: 400 0.875rem "Roboto", sans-serif;
+      }
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+
+      &.likeButton {
+        display: flex;
+        align-items: flex-end;
+        color: var(--gray-dark);
+        gap: 0.5rem;
+        transition: filter 0.2s;
+
+        &.liked {
+          color: var(--purple);
+
+          svg path {
+            stroke: var(--purple);
+          }
+        }
+
+        &:hover {
+          filter: brightness(0.7);
+        }
+      }
+
+      &.deleteButton {
+        & svg path {
+          transition: stroke 0.3s;
+        }
+
+        &:hover svg path {
+          stroke: var(--red);
+        }
+      }
+
+      &.checkButton {
+        & svg path,
+        & circle {
+          transition: stroke 0.3s;
+        }
+
+        &:hover svg path,
+        &:hover circle {
+          stroke: #4caf50;
+        }
+      }
+
+      &.answerButton {
+        & svg path,
+        & circle {
+          transition: stroke 0.3s;
+        }
+
+        &:hover svg path,
+        &:hover circle {
+          stroke: var(--purple);
+        }
+
+        &.active svg path {
+          stroke: var(--purple);
+        }
+      }
+    }
+  }
+}
+
+.excludeModal {
+  height: 100%;
+  width: 100%;
+  background: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+
+    path {
+      stroke: var(--red);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  b {
+    font: 700 1.5rem "Poppins", sans-serif;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  p {
+    font: 400 1rem "Roboto", sans-serif;
+    color: var(--gray-dark);
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    @media (max-width: 400px) {
+      flex-direction: column;
+    }
+
+    button {
+      padding: 0.875rem 2rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      transition: filter 0.2s;
+
+      @media (max-width: 400px) {
+        width: 100%;
+      }
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+
+      &:first-child {
+        background: var(--gray-light);
+        color: var(--gray-dark);
+      }
+
+      &:last-child {
+        background: var(--red);
+        color: var(--white);
+      }
+    }
+  }
+}

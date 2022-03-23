@@ -1,0 +1,42 @@
+.button {
+  height: 3.125rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  background: var(--purple);
+  color: var(--white);
+  padding: 0 2rem;
+  transition: filter 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+
+  &.outlined {
+    background: var(--white);
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    transition: background 0.3s;
+
+    &:hover {
+      background: var(--purple);
+      color: var(--white);
+    }
+  }
+
+  // Image component
+  div {
+    margin-right: 1rem;
+  }
+
+  &:not(:disabled):hover {
+    filter: brightness(0.9);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
